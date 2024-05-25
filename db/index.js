@@ -35,8 +35,4 @@ const Admin = mongoose.model("Admin", adminSchema);
 const User = mongoose.model("User", userSchema);
 const Course = mongoose.model("Course", courseSchema);
 
-module.exports({
-  Admin,
-  User,
-  Course,
-});
+module.exports = { Admin, User, Course };
