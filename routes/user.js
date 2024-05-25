@@ -1,6 +1,6 @@
 import { Router } from "express";
-import userMiddleware from "../middleware/user.js";
-import { Course, User } from "./db";
+import { userMiddleware } from "../middleware/user.js";
+import { Course, User } from "../db/index.js";
 const router = Router();
 
 router.post("/user", (req, res) => {
@@ -25,4 +25,4 @@ router.get("/courses", (req, res) => {
     .catch((err) => console.log(err));
 });
 
-module.exports = router;
+export { router };

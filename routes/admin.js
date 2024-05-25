@@ -1,7 +1,7 @@
 import { Router } from "express";
-import adminMiddleware from "../middleware/admin.js";
+import { adminMiddleware } from "../middleware/admin.js";
 const router = Router();
-import { Admin, Course } from "../db";
+import { Admin, Course } from "../db/index.js";
 
 router.post("/signup", (req, res) => {
   const username = req.body.username;
@@ -24,7 +24,8 @@ router.post("/courses", adminMiddleware, (req, res) => {
   Course.create({ title, description, price, imageLink })
     .then((el) => {
       res.status(200).json({
-        message: `${el.title} added successfully`,
+        message: `${title} added successfully`,
+        id: el._id,
       });
     })
     .catch((err) => console.log(err));
@@ -40,4 +41,4 @@ router.get("/courses", adminMiddleware, (req, res) => {
     .catch((err) => console.log(err));
 });
 
-module.exports = router;
+export { router };

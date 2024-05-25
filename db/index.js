@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 import "dotenv/config";
 
 // CONNECTING to DATABASE --------
-const DB = process.env.DS_STRING;
-mongoose.connect(DB, () => console.log("DB connection successful"));
+const DB = process.env.DB_STRING;
+mongoose.connect(DB);
 
 // ADMIN Schema --------
-const adminSchema = new mongoose.Schema({
+const AdminSchema = new mongoose.Schema({
   username: { type: String, unique: true, required: true },
   password: { type: Number, required: true },
 });
@@ -31,8 +31,8 @@ const CourseSchema = new mongoose.Schema({
   imageLink: String,
 });
 
-const Admin = mongoose.model("Admin", adminSchema);
-const User = mongoose.model("User", userSchema);
-const Course = mongoose.model("Course", courseSchema);
+const Admin = mongoose.model("Admin", AdminSchema);
+const User = mongoose.model("User", UserSchema);
+const Course = mongoose.model("Course", CourseSchema);
 
-module.exports = { Admin, User, Course };
+export { Admin, User, Course };

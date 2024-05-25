@@ -1,4 +1,4 @@
-import { Admin } from "./db";
+import { Admin } from "../db/index.js";
 
 // ADMIN middleware
 function adminMiddleware(req, res, next) {
@@ -16,4 +16,4 @@ function adminMiddleware(req, res, next) {
     });
 }
 
-module.exports = adminMiddleware;
+export { adminMiddleware };

@@ -1,4 +1,4 @@
-import { User } from "./db";
+import { User } from "../db/index.js";
 
 // ADMIN middleware
 function userMiddleware(req, res, next) {
@@ -16,4 +16,4 @@ function userMiddleware(req, res, next) {
     });
 }
 
-module.exports = userMiddleware;
+export { userMiddleware };

@@ -1,7 +1,7 @@
 import express from "express";
 import bodyParser from "body-parser";
-import adminRouter from "./routes/admin.js";
-import userRouter from "./routes/user.js";
+import { router as adminRouter } from "./routes/admin.js";
+import { router as userRouter } from "./routes/user.js";
 import "dotenv/config";
 
 const app = express();
