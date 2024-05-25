@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 import "dotenv/config";
 
-// CONNECTING to DATABASE --------
-const DB = process.env.DB_STRING;
+// CONNECTING DATABASE --------
+const DB = process.env.DD_STRING;
 mongoose.connect(DB);
 
 // ADMIN Schema --------
