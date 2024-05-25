@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import "dotenv/config";
 
 // CONNECTING DATABASE --------
-const DB = process.env.DD_STRING;
+const DB = process.env.DB_STRING;
 mongoose.connect(DB);
 
 // ADMIN Schema --------
