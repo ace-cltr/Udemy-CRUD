@@ -6,7 +6,7 @@ import { Admin, Course } from "../db/index.js";
 router.post("/signup", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
-  Admin.create({ username: password })
+  Admin.create({ username, password })
     .then(() => {
       res.status(200).json({
         message: `Admin ${username} created successfully`,

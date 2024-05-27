@@ -25,4 +25,30 @@ router.get("/courses", (req, res) => {
     .catch((err) => console.log(err));
 });
 
+router.post("/courses/:courseId", userMiddleware, (req, res) => {
+  const ID = req.params.courseId;
+  const username = req.headers.username;
+  Course.updateOne({ username }, { $push: { purchasedCourse: ID } })
+    .then(() =>
+      res.status(200).json({
+        message: "course purchase successful",
+      })
+    )
+    .catch((err) => console.log(err));
+});
+
+router.get("/purchasedCourse", userMiddleware, (req, res) => {
+  const username = req.header.username;
+  User.findOne({ username })
+    .then((users) => {
+      Course.find({ _id: { $in: users.purchasedCourse } });
+    })
+    .then((message) =>
+      res.status(200).json({
+        message,
+      })
+    )
+    .catch((err) => console.log(err));
+});
+
 export { router };
