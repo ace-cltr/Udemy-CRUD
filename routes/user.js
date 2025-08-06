@@ -3,6 +3,7 @@ import { userMiddleware } from "../middleware/user.js";
 import { Course, User } from "../db/index.js";
 const router = Router();
 console.log('hellp');
+"test"
 router.post("/user", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
