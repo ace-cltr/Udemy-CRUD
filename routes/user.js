@@ -2,7 +2,7 @@ import { Router } from "express";
 import { userMiddleware } from "../middleware/user.js";
 import { Course, User } from "../db/index.js";
 const router = Router();
-
+console.log('hellp');
 router.post("/user", (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
